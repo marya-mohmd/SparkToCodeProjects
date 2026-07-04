@@ -1,6 +1,6 @@
 ﻿namespace SparkToCode.program1
 {
-    internal class Program
+    internal class Session1
     {
         static void Main(string[] args)
         {
@@ -98,4 +98,4 @@
         }
     } 
 }
-}
+
