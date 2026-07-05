@@ -23,6 +23,18 @@
 
             Console.WriteLine($"The square of {number} is: {power}");
             Console.WriteLine($"The square root of {number} is: {root}");
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 3: Name Formatter
+            Console.WriteLine("Please enter your name:");
+            string name = Console.ReadLine();
+            string upper = name.ToUpper(); 
+            string lower = name.ToLower();
+            int length = name.Length;
+
+            Console.WriteLine($"Your name in uppercase is: {upper}");
+            Console.WriteLine($"Your name in lowercase is: {lower}");
+            Console.WriteLine($"The length of your name is: {length} characters");
         }
     }
 }
