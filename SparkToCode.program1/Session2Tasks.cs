@@ -24,7 +24,21 @@ namespace SparkToCode.program1
                 Console.WriteLine("Liftoff!");
             }
 
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 2: Sum of Numbers 1 to N
+            Console.WriteLine("Enter a Positive Number:");
+            int PosNum = int.Parse(Console.ReadLine());
+            int i = 0;
+            int sum = 0;
+
+            for (i = 0; i <= PosNum; i++)
+            {
+                sum = sum + i;
+            }
+
+            Console.WriteLine("Final Sum is =" + sum);
+
             
-    }
+        }
 }
 }
