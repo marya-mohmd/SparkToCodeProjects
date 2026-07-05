@@ -195,6 +195,33 @@
             {
                 Console.WriteLine("Verification Failed");
             }
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 12: Birthday Insights
+            Console.Write("Enter your date of birth (yyyy-MM-dd): ");
+            string BDinput = Console.ReadLine();
+
+            try
+            {
+                DateTime birthDate = DateTime.Parse(BDinput);
+                DateTime today = DateTime.Today;
+
+                int age = today.Year - birthDate.Year;
+
+                if (today.Month < birthDate.Month || (today.Month == birthDate.Month && today.Day < birthDate.Day))
+                {
+                    age--;
+                }
+
+                DayOfWeek birthWeekday = birthDate.DayOfWeek;
+
+                Console.WriteLine("You were born on a " + birthWeekday + ".");
+                Console.WriteLine("Your age today is " + age + " years.");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid date format. Please restart and enter a valid date.");
+            }
         }
     }
 }
