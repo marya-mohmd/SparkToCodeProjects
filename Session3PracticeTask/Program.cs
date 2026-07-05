@@ -122,6 +122,18 @@
             {
                 Console.WriteLine("Please restart and enter a valid date.");
             }
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 9: Round Up / Round Down Explorer
+            Console.WriteLine("Please enter a decimal number:");
+            double decimalNumber = double.Parse(Console.ReadLine());
+            double roundedNum = Math.Round(decimalNumber);
+            double roundedUp = Math.Ceiling(decimalNumber);
+            double roundedDown = Math.Floor(decimalNumber);
+
+            Console.WriteLine("The number rounded to the nearest whole number is:" + roundedNum);
+            Console.WriteLine("The number rounded up to the nearest whole number is:" + roundedUp);
+            Console.WriteLine("The number rounded down to the nearest whole number is:" + roundedDown);
         }
     }
 }
