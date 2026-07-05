@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Reflection;
 using System.Reflection.Metadata;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SparkToCode.program1
 {
@@ -168,6 +170,43 @@ namespace SparkToCode.program1
                     SumResult = SumResult + j;
                 }
             }
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 9: Validated Positive Number Input
+            int e = 0;
+            bool validInput = false;
+
+            do
+            {
+                try
+                {
+                    Console.Write("Enter a positive whole number: ");
+                    e =int.Parse (Console.ReadLine());
+
+                    if (e <= 0)
+                    {
+                        Console.WriteLine("Error: The number must be positive. Try again.");
+                    }
+                    else
+                    {
+                        validInput = true;
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Error: Please enter a valid whole number. Try again.");
+                }
+
+            } while (!validInput);
+
+            int SUM = 0;
+
+            for (int k = 1; k <= e; k++)
+            {
+                SUM = SUM + k;
+            }
+
+            Console.WriteLine("The sum from 1 to " + e + " is: " + SUM);
         }
     }
 }
