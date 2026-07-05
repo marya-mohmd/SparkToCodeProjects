@@ -38,6 +38,16 @@ namespace SparkToCode.program1
 
             Console.WriteLine("Final Sum is =" + sum);
 
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 3: Multiplication Table
+            Console.WriteLine("Enter a Number to Generate Multiplication Table:");
+            int Num = int.Parse(Console.ReadLine());
+            for (int m = 0; m < Num; m++)
+            {
+                int result = Num * m;
+                Console.WriteLine(Num + " * " + m + " = " + result);
+            }
+
             
         }
 }
