@@ -45,6 +45,19 @@
 
             Console.WriteLine("Your free trial started on:" + StartDate.ToString("yyyy-MM-dd"));
             Console.WriteLine("Your free trial will end on:" + EndDate.ToString("yyyy-MM-dd"));
-        }
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 5: Grade Rounding System
+            Console.WriteLine("Please enter your raw exam score as a decimal number:");
+            double grade = double.Parse(Console.ReadLine());
+            double roundedGrade = Math.Round(grade, 2);
+            if ( roundedGrade >= 60)
+            {
+                Console.WriteLine($"Your rounded grade is: {roundedGrade}. You have passed the exam.");
+            }
+            else
+            {
+                Console.WriteLine($"Your rounded grade is: {roundedGrade}. You have failed the exam."); 
+            }
     }
-}
+}}
