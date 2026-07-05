@@ -92,6 +92,28 @@ namespace SparkToCode.program1
                     Console.WriteLine("Congratulations! It took you " + attempts + "attempts.");
                 }
             } while (userGuess != secrettCode);
-        }
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 6: Safe Division Calculator
+            try
+            {
+                Console.WriteLine("Please Enter the First Number:");
+                int firstNum = int.Parse(Console.ReadLine());
+                Console.WriteLine("Please Enter the Second Number:");   
+                int secondNum = int.Parse(Console.ReadLine());
+
+                int DivideResult = firstNum / secondNum;
+                Console.WriteLine("The Result of Division is: " + DivideResult);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("Error: Division by zero is not allowed. Please enter a non-zero second number.");
+
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("Error: Invalid input format. Please enter valid integers.");
+            }
     }
+}
 }
