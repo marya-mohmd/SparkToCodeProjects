@@ -28,7 +28,7 @@
             //Task 3: Name Formatter
             Console.WriteLine("Please enter your name:");
             string name = Console.ReadLine();
-            string upper = name.ToUpper(); 
+            string upper = name.ToUpper();
             string lower = name.ToLower();
             int length = name.Length;
 
@@ -51,13 +51,30 @@
             Console.WriteLine("Please enter your raw exam score as a decimal number:");
             double grade = double.Parse(Console.ReadLine());
             double roundedGrade = Math.Round(grade, 2);
-            if ( roundedGrade >= 60)
+            if (roundedGrade >= 60)
             {
                 Console.WriteLine($"Your rounded grade is: {roundedGrade}. You have passed the exam.");
             }
             else
             {
-                Console.WriteLine($"Your rounded grade is: {roundedGrade}. You have failed the exam."); 
+                Console.WriteLine($"Your rounded grade is: {roundedGrade}. You have failed the exam.");
+            }
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 6: Password Strength Checker
+            Console.WriteLine("Please enter your password:");
+            string password = Console.ReadLine();
+            bool PassLength = password.Length >= 8;
+            bool PassContains= password.ToLower().Contains("password");
+
+            if (PassLength && !PassContains)
+            {
+                Console.WriteLine("Your password is strong.");
+            }
+            else
+            {
+                Console.WriteLine("Your password is weak.");
             }
     }
-}}
+}
+}
