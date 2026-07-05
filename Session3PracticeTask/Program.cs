@@ -65,7 +65,7 @@
             Console.WriteLine("Please enter your password:");
             string password = Console.ReadLine();
             bool PassLength = password.Length >= 8;
-            bool PassContains= password.ToLower().Contains("password");
+            bool PassContains = password.ToLower().Contains("password");
 
             if (PassLength && !PassContains)
             {
@@ -75,6 +75,24 @@
             {
                 Console.WriteLine("Your password is weak.");
             }
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 7: Clean Name Comparator
+            Console.WriteLine("Please enter your username:");
+            string username = Console.ReadLine();
+            Console.WriteLine("Please confirm your username");
+            string confirmUsername = Console.ReadLine();
+
+            string trimmed = confirmUsername.Trim();
+            string uppercase = trimmed.ToUpper();
+            if (uppercase == username.ToUpper())
+            {
+                Console.WriteLine("The usernames match.");
+            }
+            else
+            {
+                Console.WriteLine("The usernames do not match.");
+            }
+        }
     }
-}
 }
