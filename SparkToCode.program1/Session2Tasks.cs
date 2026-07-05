@@ -154,7 +154,22 @@ namespace SparkToCode.program1
                     Console.WriteLine("Error: Please enter a valid number.");
                 }
             }
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 8: Sum of Even Numbers Only
+            Console.WriteLine("Enter a Positive Number to Calculate the Sum of Even Numbers:");
+            int EvenNum = int.Parse(Console.ReadLine());
+            int SumResult = 0;
+            
+            for (int j=1; j <= EvenNum; j++)
+            {
+                if (j % 2 == 0)
+                {
+                    SumResult = SumResult + j;
+                }
+            }
         }
-        }
+    }
 }
+
 
