@@ -48,7 +48,24 @@ namespace SparkToCode.program1
                 Console.WriteLine(Num + " * " + m + " = " + result);
             }
 
-            
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 4: Password Retry
+            string correctPassword = "Spark2026";
+            string inputPassword = "";
+
+            while (inputPassword != correctPassword)
+            {
+                Console.WriteLine("Please Enter the Password:");
+                inputPassword = Console.ReadLine();
+                if (inputPassword != correctPassword)
+                {
+                    Console.WriteLine("Incorrect Password. Please Try Again.");
+                }
+                else
+                {
+                    Console.WriteLine("Access Granted!");
+                }
+            }
         }
 }
 }
