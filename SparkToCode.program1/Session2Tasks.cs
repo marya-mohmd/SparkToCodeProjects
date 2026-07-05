@@ -66,6 +66,32 @@ namespace SparkToCode.program1
                     Console.WriteLine("Access Granted!");
                 }
             }
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 5: Number Guessing Game
+            Console.WriteLine("Welcome to the Number Guessing Game!");
+            int secrettCode = 38;
+            int userGuess = 0;
+            int attempts = 0;
+
+            do
+            {
+                Console.WriteLine("Guess the Secret Code:");
+                userGuess = int.Parse(Console.ReadLine());
+                attempts++;
+                if (userGuess < secrettCode)
+                {
+                    Console.WriteLine("Too Low! Try Again.");
+                }
+                else if (userGuess > secrettCode)
+                {
+                    Console.WriteLine("Too High! Try Again.");
+                }
+                else
+                {
+                    Console.WriteLine("Congratulations! It took you " + attempts + "attempts.");
+                }
+            } while (userGuess != secrettCode);
         }
-}
+    }
 }
