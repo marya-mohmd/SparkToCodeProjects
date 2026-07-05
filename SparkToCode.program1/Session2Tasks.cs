@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Reflection.Metadata;
 using System.Text;
 
 namespace SparkToCode.program1
@@ -10,14 +12,14 @@ namespace SparkToCode.program1
         {
             //Task 1: Countdown Timer
             Console.WriteLine("Please Enter a Starting Number:");
-            int StartingNumber = int.Parse(Console.ReadLine()); 
-            if (StartingNumber < 1) 
+            int StartingNumber = int.Parse(Console.ReadLine());
+            if (StartingNumber < 1)
             {
                 Console.WriteLine("Please Enter a Starting Number Higher Than 1:");
             }
             else
             {
-                for(int y = StartingNumber; y >= 1; y--)
+                for (int y = StartingNumber; y >= 1; y--)
                 {
                     Console.WriteLine(y);
                 }
@@ -99,7 +101,7 @@ namespace SparkToCode.program1
             {
                 Console.WriteLine("Please Enter the First Number:");
                 int firstNum = int.Parse(Console.ReadLine());
-                Console.WriteLine("Please Enter the Second Number:");   
+                Console.WriteLine("Please Enter the Second Number:");
                 int secondNum = int.Parse(Console.ReadLine());
 
                 int DivideResult = firstNum / secondNum;
@@ -114,6 +116,45 @@ namespace SparkToCode.program1
             {
                 Console.WriteLine("Error: Invalid input format. Please enter valid integers.");
             }
-    }
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 7: Repeating Menu with Exit Option
+            bool exit = false;
+
+            while (!exit)
+            {
+                Console.WriteLine("1) Say Hello");
+                Console.WriteLine("2) Show Current Time-of-day Greeting");
+                Console.WriteLine("3) Exit");
+                Console.Write("Enter your choice: ");
+
+                try
+                {
+                    int choice = int.Parse(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("Hello!");
+                            break;
+                        case 2:
+                            Console.WriteLine("It is 8:00am, Good Morning! Hope you have a great day.");
+                            break;
+                        case 3:
+                            Console.WriteLine("Goodbye!");
+                            exit = true;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice. Please select 1, 2, or 3.");
+                            break;
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Error: Please enter a valid number.");
+                }
+            }
+        }
+        }
 }
-}
+
