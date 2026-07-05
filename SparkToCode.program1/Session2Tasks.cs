@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Reflection.Metadata;
 using System.Text;
@@ -162,8 +163,8 @@ namespace SparkToCode.program1
             Console.WriteLine("Enter a Positive Number to Calculate the Sum of Even Numbers:");
             int EvenNum = int.Parse(Console.ReadLine());
             int SumResult = 0;
-            
-            for (int j=1; j <= EvenNum; j++)
+
+            for (int j = 1; j <= EvenNum; j++)
             {
                 if (j % 2 == 0)
                 {
@@ -180,8 +181,8 @@ namespace SparkToCode.program1
             {
                 try
                 {
-                    Console.Write("Enter a positive whole number: ");
-                    e =int.Parse (Console.ReadLine());
+                    Console.WriteLine("Enter a positive whole number: ");
+                    e = int.Parse(Console.ReadLine());
 
                     if (e <= 0)
                     {
@@ -207,8 +208,138 @@ namespace SparkToCode.program1
             }
 
             Console.WriteLine("The sum from 1 to " + e + " is: " + SUM);
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 10: Simple ATM Simulation
+            int pin = 38083;
+            double balance = 100.000;
+
+            int ATMattempts = 0;
+
+            while (ATMattempts < 3)
+            {
+                try
+                {
+                    Console.WriteLine("Enter your PIN: ");
+                    int enteredPin = int.Parse(Console.ReadLine());
+                    ATMattempts++;
+
+                    if (enteredPin == pin)
+                    {
+                        break;
+                    }
+                    else if (ATMattempts == 3)
+                    {
+                        Console.WriteLine("Card Blocked");
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect PIN. Attempts remaining: " + (3 - ATMattempts));
+                    }
+                }
+                catch (FormatException)
+                {
+                    ATMattempts++;
+
+                    if (ATMattempts == 3)
+                    {
+                        Console.WriteLine("Card Blocked");
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. That counts as a wrong attempt. Attempts remaining: " + (3 - ATMattempts));
+                    }
+                }
+            }
+
+            Console.WriteLine("PIN Correct! Welcome to the ATM.");
+            bool Exit = false;
+
+            while (!Exit)
+            {
+                Console.WriteLine("1) Deposit");
+                Console.WriteLine("2) Withdraw");
+                Console.WriteLine("3) Check Balance");
+                Console.WriteLine("4) Exit");
+                Console.WriteLine("Enter your choice: ");
+
+                try
+                {
+                    int Choice = int.Parse(Console.ReadLine());
+
+                    switch (Choice)
+                    {
+                        case 1:
+                            try
+                            {
+                                Console.WriteLine("Enter deposit amount: ");
+                                double depositAmount = double.Parse(Console.ReadLine());
+
+                                if (depositAmount <= 0)
+                                {
+                                    Console.WriteLine("Error: Deposit amount must be positive.");
+                                }
+                                else
+                                {
+                                    balance = balance + depositAmount;
+                                    Console.WriteLine("Deposit successful. New balance: " + balance + " OMR");
+                                }
+                            }
+                            catch (FormatException h)
+                            {
+                                Console.WriteLine("Error: Please enter a valid number.");
+                            }
+                            break;
+
+                        case 2:
+                            try
+                            {
+                                Console.Write("Enter withdrawal amount: ");
+                                double withdrawAmount = double.Parse(Console.ReadLine());
+
+                                if (withdrawAmount <= 0)
+                                {
+                                    Console.WriteLine("Error: Withdrawal amount must be positive.");
+                                }
+                                else if (withdrawAmount > balance)
+                                {
+                                    Console.WriteLine("Error: Insufficient balance.");
+                                }
+                                else
+                                {
+                                    balance = balance - withdrawAmount;
+                                    Console.WriteLine("Withdrawal successful. New balance: " + balance + " OMR");
+                                }
+                            }
+                            catch (FormatException h)
+                            {
+                                Console.WriteLine("Error: Please enter a valid number.");
+                            }
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Current balance: " + balance + " OMR");
+                            break;
+
+                        case 4:
+                            Console.WriteLine("Thank you for using the ATM. Goodbye!");
+                            Exit = true;
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid choice. Please select 1, 2, 3, or 4.");
+                            break;
+                    }
+                }
+                catch (FormatException h)
+                {
+                    Console.WriteLine("Error: Please enter a valid number for the menu choice.");
+                }
+            }
+
         }
     }
 }
-
 
