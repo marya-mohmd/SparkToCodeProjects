@@ -134,6 +134,26 @@
             Console.WriteLine("The number rounded to the nearest whole number is:" + roundedNum);
             Console.WriteLine("The number rounded up to the nearest whole number is:" + roundedUp);
             Console.WriteLine("The number rounded down to the nearest whole number is:" + roundedDown);
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 10: Word Position Finder
+            Console.WriteLine("Please enter a full sentence:");
+            string sentence = Console.ReadLine();
+            Console.WriteLine("Please enter a word to find its position in the sentence:");
+            string word = Console.ReadLine();
+
+            int firstPosition = sentence.IndexOf(word);
+            int lastPosition = sentence.LastIndexOf(word);
+
+            if (firstPosition == -1)
+            {
+                Console.WriteLine("The word '" + word + "' was not found.");
+            }
+            else
+            {
+                Console.WriteLine("First occurrence of '" + word + "' is at index: " + firstPosition);
+                Console.WriteLine("Last occurrence of '" + word + "' is at index: " + lastPosition);
+            }
         }
     }
 }
