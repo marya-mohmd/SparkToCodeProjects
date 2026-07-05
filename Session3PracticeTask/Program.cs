@@ -154,6 +154,47 @@
                 Console.WriteLine("First occurrence of '" + word + "' is at index: " + firstPosition);
                 Console.WriteLine("Last occurrence of '" + word + "' is at index: " + lastPosition);
             }
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //Task 11: One-Time Password (OTP) Generator
+            Random random = new Random();
+            int otp = random.Next(1000, 10000); 
+
+            Console.WriteLine("Your OTP has been sent: " + otp);
+
+            int maxAttempts = 3;
+            bool isVerified = false;
+
+            for (int attempt = 1; attempt <= maxAttempts; attempt++)
+            {
+                Console.Write("Attempt " + attempt + " of " + maxAttempts + " - Enter the OTP: ");
+                string input = Console.ReadLine();
+
+                try
+                {
+                    int enteredCode = int.Parse(input);
+
+                    if (enteredCode == otp)
+                    {
+                        Console.WriteLine("Verified");
+                        isVerified = true;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect code.");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input. Please enter numbers only.");
+                }
+            }
+
+            if (!isVerified)
+            {
+                Console.WriteLine("Verification Failed");
+            }
         }
     }
 }
