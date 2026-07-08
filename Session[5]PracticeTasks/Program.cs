@@ -77,9 +77,10 @@
 
             //Task 6 - Filtered Shopping List
             List<string> shoppingList = new List<string>();
+            Console.WriteLine("Welcome to our store! Type 'done' when you are finished adding items.");
             while (true)
             {
-                Console.WriteLine("Welcome to our store! Type 'done' when you are finished adding items.");
+                
                 Console.WriteLine("Enter an item to add to your shopping list:");
                 string item = Console.ReadLine();
                 if (item.ToLower() == "done")
@@ -97,6 +98,15 @@
             
             Console.WriteLine("Your updated shopping list:");
             Console.WriteLine(string.Join(", ", shoppingList));
+
+            //Task 7 - High Score Podium
+            List<int> scores = new List<int>();
+            for(int j = 0; j < 3; j++)
+            {
+                Console.WriteLine("Enter your score:");
+                int score = int.Parse(Console.ReadLine());
+                scores.Add(score);
+            }
         }
     }
 }
