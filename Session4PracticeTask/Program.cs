@@ -56,7 +56,7 @@
         {
             return num % 2 == 0;
             }
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             Console.WriteLine("Enter a number:");
             int uNumber = int.Parse(Console.ReadLine());
@@ -68,6 +68,27 @@
             {
                 Console.WriteLine("Odd.");
             }
+        } */
+
+        //Task 6 - Rectangle Area & Perimeter Functions
+        public static double CalculateArea(double length, double width)
+        {
+            return length * width;
         }
-    }
+        public static double CalculatePerimeter(double length, double width)
+        {
+            return 2 * (length + width);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter length of the rectangle:");
+            double length = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter width of the rectangle:");
+            double width = double.Parse(Console.ReadLine());
+            double area = CalculateArea(length, width);
+            double perimeter = CalculatePerimeter(length, width);
+            Console.WriteLine("Area:" + area);
+            Console.WriteLine("Perimeter:" + perimeter);
+        }
+}
 }
