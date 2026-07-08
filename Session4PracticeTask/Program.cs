@@ -39,8 +39,8 @@
 
         //Task 4 - Fixed Menu Display Function
         public static void DisplayMenu()
-        { 
-            Console.WriteLine("------Menu-------"); 
+        {
+            Console.WriteLine("------Menu-------");
             Console.WriteLine("1) Start");
             Console.WriteLine("2) Help");
             Console.WriteLine("3) Exit");
@@ -55,7 +55,7 @@
         public static bool IsEven(int num)
         {
             return num % 2 == 0;
-            }
+        }
         /*static void Main(string[] args)
         {
             Console.WriteLine("Enter a number:");
@@ -79,7 +79,7 @@
         {
             return 2 * (length + width);
         }
-        static void Main(string[] args)
+        /* static void Main(string[] args)
         {
             Console.WriteLine("Enter length of the rectangle:");
             double length = double.Parse(Console.ReadLine());
@@ -89,6 +89,38 @@
             double perimeter = CalculatePerimeter(length, width);
             Console.WriteLine("Area:" + area);
             Console.WriteLine("Perimeter:" + perimeter);
+        } */
+
+        //Task 7 - Grade Letter Function
+        public static string GetGradeLetter(int score)
+        {
+            if (score >= 90)
+            {
+                return "A";
+            }
+            else if (score >= 80)
+            {
+                return "B";
+            }
+            else if (score >= 70)
+            {
+                return "C";
+            }
+            else if (score >= 60)
+            {
+                return "D";
+            }
+            else
+            {
+                return "F";
+            }
         }
-}
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter your score:");
+            int score = int.Parse(Console.ReadLine());
+            string gradeLetter = GetGradeLetter(score);
+            Console.WriteLine("Your grade letter is: " + gradeLetter);
+        }
+    }
 }
