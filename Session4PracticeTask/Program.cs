@@ -115,12 +115,28 @@
                 return "F";
             }
         }
-        static void Main(string[] args)
+        /* static void Main(string[] args)
         {
             Console.WriteLine("Enter your score:");
             int score = int.Parse(Console.ReadLine());
             string gradeLetter = GetGradeLetter(score);
             Console.WriteLine("Your grade letter is: " + gradeLetter);
+        } */
+
+        //Task 8 - Countdown Function
+        public static void Countdown(int start)
+        {
+            for (int i = start; i >= 0; i--)
+            {
+                Console.WriteLine(i);
+            }
         }
-    }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a starting number for countdown:");
+            int startNumber = int.Parse(Console.ReadLine());
+            Countdown(startNumber);
+
+        }
+}
 }
