@@ -71,7 +71,7 @@
         } */
 
         //Task 6 - Rectangle Area & Perimeter Functions
-        public static double CalculateArea(double length, double width)
+        /*public static double CalculateArea(double length, double width)
         {
             return length * width;
         }
@@ -79,7 +79,7 @@
         {
             return 2 * (length + width);
         }
-        /* static void Main(string[] args)
+         static void Main(string[] args)
         {
             Console.WriteLine("Enter length of the rectangle:");
             double length = double.Parse(Console.ReadLine());
@@ -152,7 +152,7 @@
         {
             return a * b * c;
         }
-        static void Main(string[] args)
+        /* static void Main(string[] args)
         {
             Console.WriteLine("Enter two integers to multiply:");
             int int1 = int.Parse(Console.ReadLine());
@@ -165,6 +165,27 @@
             Console.WriteLine("Enter three integers to multiply:");
             int int3 = int.Parse(Console.ReadLine());
             Console.WriteLine("Product of three integers: " + Multiply(int1, int2, int3));
+        } */
+
+        //Task 10 - Overloaded Area Calculator
+        public static double CalculateArea(double parameter)
+        {
+            return parameter * parameter;
+        }
+        public static double CalculateArea(double length, double width)
+        {
+            return length * width;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the side length of the square:");
+            double squareSide = double.Parse(Console.ReadLine());
+            Console.WriteLine("Area of square: " + CalculateArea(squareSide));
+            Console.WriteLine("Enter the length of the rectangle:");
+            double rectangleLength = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the width of the rectangle:");
+            double rectangleWidth = double.Parse(Console.ReadLine());
+            Console.WriteLine("Area of rectangle: " + CalculateArea(rectangleLength, rectangleWidth));
         }
 }
 }
