@@ -176,7 +176,7 @@
         {
             return length * width;
         }
-        static void Main(string[] args)
+        /* static void Main(string[] args)
         {
             Console.WriteLine("Enter the side length of the square:");
             double squareSide = double.Parse(Console.ReadLine());
@@ -186,6 +186,83 @@
             Console.WriteLine("Enter the width of the rectangle:");
             double rectangleWidth = double.Parse(Console.ReadLine());
             Console.WriteLine("Area of rectangle: " + CalculateArea(rectangleLength, rectangleWidth));
+        } */
+
+        //Task 11 - Function-Based Calculator
+        public static double Add(double a, double b)
+        {
+            return a + b;
         }
+        public static double Subtract(double a, double b)
+        {
+            return a - b;
+        }
+        public static double MultiplyNumbers(double a, double b)
+        {
+            return a * b;
+        }
+        public static double DivideNumbers(double a, double b)
+        {
+            try
+            {
+                if (b == 0)
+                {
+                    throw new DivideByZeroException("Cannot divide by zero.");
+                }
+                return a / b;
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return 0;
+            }
+        }
+        static void DisplayResult(string operation, double result)
+        {
+            Console.WriteLine("The operation: " + operation);
+            Console.WriteLine("The result is: " + result);
+        }
+        static void Main(string[] args)
+        {
+            bool CalculatorRunning = true;
+            while (CalculatorRunning)
+            {
+                Console.WriteLine("Choose an Option to start calculating:");
+                Console.WriteLine("1) Addition");
+                Console.WriteLine("2) Subtraction");
+                Console.WriteLine("3) Multiplication");
+                Console.WriteLine("4) Division");
+                string choice = Console.ReadLine();
+
+                Console.WriteLine("Enter the first number:");
+                double num1 = double.Parse(Console.ReadLine());
+                Console.WriteLine("Enter the second number:");  
+                double num2 = double.Parse(Console.ReadLine());
+
+                double result = 0;
+
+                switch(choice) 
+                {
+                    case "1":
+                        result = Add(num1, num2);
+                        DisplayResult("Addition", result);
+                        break;
+                    case "2":
+                        result = Subtract(num1, num2);
+                        DisplayResult("Subtraction", result);
+                        break;
+                    case "3":
+                        result = MultiplyNumbers(num1, num2);
+                        break; 
+                    case "4":
+                        result = DivideNumbers(num1, num2);
+                        break;
+                    default: 
+                        Console.WriteLine("Invalid choice. Please select a valid option.");
+                        break;
+                }
+            }
+        }
+}
 }
 }
