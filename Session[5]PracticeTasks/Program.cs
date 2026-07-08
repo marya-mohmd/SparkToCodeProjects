@@ -60,6 +60,20 @@
             var servedCustomer = customerService.Dequeue();
             Console.WriteLine($"\n Served Customer Name: {servedCustomer}");
             Console.WriteLine($"\nNumber of customers waiting: {customerService.Count}");
+
+            //Task 5 - Array Grade Range
+            int[] studentGrades = new int[5];
+            for (int i = 0; i < studentGrades.Length; i++)
+            {
+                Console.WriteLine("Enter your grade:");
+                studentGrades[i] = int.Parse(Console.ReadLine());
+            }
+            Array.Sort(studentGrades);
+            double avgGrade = (studentGrades[0] + studentGrades[1] + studentGrades[2] + studentGrades[3] + studentGrades[4]) / 5;
+
+            Console.WriteLine("The lowest grade is: " + studentGrades[0]);
+            Console.WriteLine("The highest grade is: " + studentGrades[4]);
+            Console.WriteLine("The average grade is: " + avgGrade);
         }
     }
 }
