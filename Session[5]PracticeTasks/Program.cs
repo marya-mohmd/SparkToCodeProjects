@@ -107,6 +107,11 @@
                 int score = int.Parse(Console.ReadLine());
                 scores.Add(score);
             }
+            scores.Sort();
+            scores.Reverse();
+            Console.WriteLine("The 1st Place is: " + scores[0]);
+            Console.WriteLine("The 2nd Place is: " + scores[1]);
+            Console.WriteLine("The 3rd Place is: " + scores[2]);
         }
     }
 }
