@@ -217,7 +217,7 @@
                 return 0;
             }
         }
-        static void DisplayResult(string operation, double result)
+        /*static void DisplayResult(string operation, double result)
         {
             Console.WriteLine("The operation: " + operation);
             Console.WriteLine("The result is: " + result);
@@ -263,6 +263,59 @@
                 }
             }
         }
-}
+}*/
+
+        //Task 12 - Student Report Card Generator
+        public static double CalculateAverage(double Score1, double Score2, double Score3)
+        {
+            double average = (Score1 + Score2 + Score3) / 3;
+            return average;
+        }
+        public static string GetGradeLetter(double average)
+        {
+            string grade;
+            if (average >= 90)
+            {
+                return "A";
+            }
+            else if (average >= 80)
+            {
+                return "B";
+            }
+            else if (average >= 70)
+            {
+                return "C";
+            }
+            else if (average >= 60)
+            {
+                return "D";
+            }
+            else
+            {
+                return "F";
+            }
+            return grade;
+        }
+        public static void PrintReportCard(string studentName, double average, string grade)
+        {
+            Console.WriteLine("Student Name: " + studentName);
+            Console.WriteLine("Average Score: " + average);
+            Console.WriteLine("Grade Letter: " + grade);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the student's name:");
+            string studentName = Console.ReadLine();
+            Console.WriteLine("Enter the first score:");
+            double score1 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the second score:");
+            double score2 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the third score:");
+            double score3 = double.Parse(Console.ReadLine());
+            double average = CalculateAverage(score1, score2, score3);
+            string grade = GetGradeLetter(average);
+            PrintReportCard(studentName, average, grade);
+
+        }
 }
 }
