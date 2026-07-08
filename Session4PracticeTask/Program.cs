@@ -22,7 +22,19 @@
 
             Console.WriteLine($"The square of {userNumber} is {squaredResult}");
             }
-            
-        
-    }
+
+        //Task 3 - Celsius to Fahrenheit Function
+        public static double CelsiusToFahrenheit(double celsius)
+        {
+            double fahrenheit = (celsius * 9 / 5) + 32;
+            return fahrenheit;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter temperature in Celsius:");
+            double celsius = double.Parse(Console.ReadLine());
+            double fahrenheit = CelsiusToFahrenheit(celsius);
+            Console.WriteLine(celsius + "=°C is equal to" + fahrenheit + "°F");
+        }
+}
 }
