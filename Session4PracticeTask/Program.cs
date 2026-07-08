@@ -131,12 +131,40 @@
                 Console.WriteLine(i);
             }
         }
-        static void Main(string[] args)
+        /* static void Main(string[] args)
         {
             Console.WriteLine("Enter a starting number for countdown:");
             int startNumber = int.Parse(Console.ReadLine());
             Countdown(startNumber);
 
+        } */
+
+        //Task 9 - Overloaded Multiply Function
+        public static int Multiply(int a, int b)
+        {
+            return a * b;
+        }
+        public static double Multiply(double a, double b)
+        {
+            return a * b;
+        }
+        public static int Multiply(int a, int b, int c)
+        {
+            return a * b * c;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter two integers to multiply:");
+            int int1 = int.Parse(Console.ReadLine());
+            int int2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Product of two integers: " + Multiply(int1, int2));
+            Console.WriteLine("Enter two doubles to multiply:");
+            double double1 = double.Parse(Console.ReadLine());
+            double double2 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Product of two doubles: " + Multiply(double1, double2));
+            Console.WriteLine("Enter three integers to multiply:");
+            int int3 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Product of three integers: " + Multiply(int1, int2, int3));
         }
 }
 }
