@@ -33,6 +33,19 @@
             Console.WriteLine("3." + todoList[2]);
             Console.WriteLine("4." + todoList[3]);
             Console.WriteLine("5." + todoList[4]);
+
+            //Task 3 - Browsing History Stack
+            Stack<string> webPage = new Stack<string>();
+
+            
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("Enter website URL" + i);
+                string URL = Console.ReadLine();
+                webPage.Push(URL);
+            }
+            string backToPage = webPage.Pop();
+            Console.WriteLine("You went back from: " + backToPage );
         }
     }
 }
