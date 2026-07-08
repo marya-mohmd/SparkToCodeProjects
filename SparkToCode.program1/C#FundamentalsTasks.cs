@@ -41,8 +41,8 @@ namespace SparkToCode.program1
             Console.WriteLine("Please Enter a Number to Check if it is Even or Odd: ");
             int Num = int.Parse(Console.ReadLine());
 
-            if(Num % 2 == 0) 
-            { 
+            if (Num % 2 == 0)
+            {
                 Console.WriteLine(Num + "is Even");
             }
             else
@@ -57,7 +57,7 @@ namespace SparkToCode.program1
             Console.WriteLine("Is Your National ID Valid? (yes/no): ");
             bool ValidID = bool.Parse(Console.ReadLine());
 
-            if(VoterAge >= 18 && ValidID)
+            if (VoterAge >= 18 && ValidID)
             {
                 Console.WriteLine("You are Eligible to Vote");
             }
@@ -71,7 +71,7 @@ namespace SparkToCode.program1
             Console.WriteLine("Please Enter Your Grade Letter: ");
             string Grade = Console.ReadLine();
 
-            switch(Grade)
+            switch (Grade)
             {
                 case "A":
                     Console.WriteLine("Excellent");
@@ -97,7 +97,7 @@ namespace SparkToCode.program1
             //Task 6: Temperature Converter
             Console.WriteLine("Please Enter the Temperature in Celsius to Convert to Fahrenheit: ");
             double C = double.Parse(Console.ReadLine());
-            double F =( C * 9 / 5 ) + 32;
+            double F = (C * 9 / 5) + 32;
 
             string Classification;
             if (C < 10)
@@ -198,7 +198,7 @@ namespace SparkToCode.program1
             //Task 10: Mini Calculator
             Console.WriteLine("Please Enter the First Number: ");
             int num1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Please Enter the Second Number: ");  
+            Console.WriteLine("Please Enter the Second Number: ");
             int num2 = int.Parse(Console.ReadLine());
             Console.WriteLine("Please Choose the Operation:\n" +
                 "1.Addition\n" +
@@ -208,8 +208,8 @@ namespace SparkToCode.program1
                 "5.Remainder");
             int operation = int.Parse(Console.ReadLine());
 
-            switch(operation)
-            { 
+            switch (operation)
+            {
                 case 1:
                     Console.WriteLine("The Result of Addition is: " + (num1 + num2));
                     break;
@@ -239,11 +239,11 @@ namespace SparkToCode.program1
                         Console.WriteLine("Division by zero is not allowed.");
                     }
                     break;
-                    default:
+                default:
                     {
                         Console.WriteLine("Invalid Operator.");
                     }
-                    break; 
+                    break;
             }
 
 
@@ -286,7 +286,7 @@ namespace SparkToCode.program1
             Console.WriteLine("Please Enter Your Reggion Code: A.Local  B.national  C.international");
             string Region = Console.ReadLine();
 
-            switch(Region)
+            switch (Region)
             {
                 case "A":
                     Console.WriteLine("The Shipping Cost for Local Region is: " + (Weight * 1) + " OMR");
@@ -314,14 +314,14 @@ namespace SparkToCode.program1
 
             bool isValidTriangle = (Side1 + Side2 > Side3) && (Side1 + Side3 > Side2) && (Side2 + Side3 > Side1);
 
-            if(!isValidTriangle)
-            { 
+            if (!isValidTriangle)
+            {
                 Console.WriteLine("The given sides do not form a valid triangle.");
             }
             else
             {
                 Console.WriteLine("The given sides form a valid triangle.");
-                if(Side1 == Side2 && Side2 == Side3)
+                if (Side1 == Side2 && Side2 == Side3)
                 {
                     Console.WriteLine("The triangle is Equilateral.");
                 }
@@ -344,7 +344,7 @@ namespace SparkToCode.program1
             int Quantity = int.Parse(Console.ReadLine());
             Console.WriteLine("Please Enter the Discount Code (yes/no): ");
             bool DiscountCode = bool.Parse(Console.ReadLine());
-            
+
             string ProductName = "";
             double Price = 0;
 
@@ -366,10 +366,10 @@ namespace SparkToCode.program1
                     Console.WriteLine("Invalid Product Code.");
                     return;
             }
-            if(DiscountCode)
+            if (DiscountCode)
             {
-            
-            double Subtotal = Price * Quantity;
+
+                double Subtotal = Price * Quantity;
 
                 double DiscountApplied = 0;
                 if (DiscountCode && Subtotal > 20)
@@ -399,56 +399,51 @@ namespace SparkToCode.program1
             Console.WriteLine("Please Enter Entrance Exam Score (out of 100): ");
             double ExamScore = double.Parse(Console.ReadLine());
 
-                Console.WriteLine("Do You Have an Extracurricular Achievement? (yes/no): ");
-                bool HasAchievement = bool.Parse(Console.ReadLine());
+            Console.WriteLine("Do You Have an Extracurricular Achievement? (yes/no): ");
+            bool HasAchievement = bool.Parse(Console.ReadLine());
 
             bool MeetsRequirements = false;
-                bool ValidProgram = true;
-                string ProgramName = "";
+            bool ValidProgram = true;
+            string ProgramName = "";
 
-                switch (ProgramType)
+            switch (ProgramType)
+            {
+                case "S":
+                    ProgramName = "Science";
+                    MeetsRequirements = (GPA >= 3.0 && ExamScore >= 75);
+                    break;
+                case "A":
+                    ProgramName = "Arts";
+                    MeetsRequirements = (GPA >= 2.5 && ExamScore >= 60);
+                    break;
+                default:
+                    ValidProgram = false;
+                    Console.WriteLine("Invalid program type");
+                    break;
+            }
+
+            if (ValidProgram)
+            {
+                string Result;
+
+                if (MeetsRequirements)
                 {
-                    case "S":
-                        ProgramName = "Science";
-                        MeetsRequirements = (GPA >= 3.0 && ExamScore >= 75);
-                        break;
-                    case "A":
-                        ProgramName = "Arts";
-                        MeetsRequirements = (GPA >= 2.5 && ExamScore >= 60);
-                        break;
-                    default:
-                        ValidProgram = false;
-                        Console.WriteLine("Invalid program type");
-                        break;
+                    Result = "Admitted";
+                }
+                else if (HasAchievement)
+                {
+                    Result = "Conditionally Admitted";
+                }
+                else
+                {
+                    Result = "Not Admitted";
                 }
 
-                if (ValidProgram)
-                {
-                    string Result;
-
-                    if (MeetsRequirements)
-                    {
-                        Result = "Admitted";
-                    }
-                    else if (HasAchievement)
-                    {
-                        Result = "Conditionally Admitted";
-                    }
-                    else
-                    {
-                        Result = "Not Admitted";
-                    }
-
-                    Console.WriteLine("Program: " + ProgramName);
-                    Console.WriteLine("Result: " + Result);
-                }
+                Console.WriteLine("Program: " + ProgramName);
+                Console.WriteLine("Result: " + Result);
             }
         }
     }
-
-
-    }
-    
 }
 
 
