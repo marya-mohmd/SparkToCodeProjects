@@ -45,9 +45,29 @@
             Console.WriteLine("2) Help");
             Console.WriteLine("3) Exit");
         }
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             DisplayMenu();
+        } */
+
+
+        //Task 5 - Even or Odd Function
+        public static bool IsEven(int num)
+        {
+            return num % 2 == 0;
+            }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a number:");
+            int uNumber = int.Parse(Console.ReadLine());
+            if (IsEven(uNumber))
+            {
+                Console.WriteLine("Even.");
+            }
+            else
+            {
+                Console.WriteLine("Odd.");
+            }
         }
-}
+    }
 }
