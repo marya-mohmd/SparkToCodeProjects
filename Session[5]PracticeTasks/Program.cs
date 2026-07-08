@@ -37,7 +37,7 @@
             //Task 3 - Browsing History Stack
             Stack<string> webPage = new Stack<string>();
 
-            
+
             for (int i = 0; i < 3; i++)
             {
                 Console.Write("Enter website URL" + i);
@@ -45,7 +45,21 @@
                 webPage.Push(URL);
             }
             string backToPage = webPage.Pop();
-            Console.WriteLine("You went back from: " + backToPage );
+            Console.WriteLine("You went back from: " + backToPage);
+
+            //Task 4 - Customer Service Queue
+            Queue<string> customerService = new Queue<string>();
+
+            for (int n = 0; n < 3; n++)
+            {
+                Console.Write("Enter customer name" + n);
+                string customerName = Console.ReadLine();
+                customerService.Enqueue(customerName);
+            }
+            Console.WriteLine($"\nNumber of customers waiting: {customerService.Count}");
+            var servedCustomer = customerService.Dequeue();
+            Console.WriteLine($"\n Served Customer Name: {servedCustomer}");
+            Console.WriteLine($"\nNumber of customers waiting: {customerService.Count}");
         }
     }
 }
