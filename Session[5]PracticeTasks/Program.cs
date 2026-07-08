@@ -6,7 +6,7 @@
         {
             //Task 1 - Fixed Grades Array
             int[] grades = new int[5];
-            
+
             for (int i = 0; i < grades.Length; i++)
             {
                 Console.WriteLine("Enter the grade of each subject:");
@@ -18,6 +18,21 @@
                 Console.WriteLine(grade);
 
             }
+
+            //Task 2 - Dynamic To-Do List
+            List<string> todoList = new List<string>();
+            Console.WriteLine("Enter 5 of your to-do tasks:");
+            for (int i = 0; i < 5; i++)
+            {
+                string item = Console.ReadLine();
+                todoList.Add(item);
+            }
+            Console.WriteLine("Your to-do list:");
+            Console.WriteLine("1." + todoList[0]);
+            Console.WriteLine("2." + todoList[1]);
+            Console.WriteLine("3." + todoList[2]);
+            Console.WriteLine("4." + todoList[3]);
+            Console.WriteLine("5." + todoList[4]);
         }
     }
 }
