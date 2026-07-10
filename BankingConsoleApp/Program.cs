@@ -201,7 +201,42 @@
         }
         static void TransferAmount()
         {
-            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter your account number: ");
+            string fromAccountNum = Console.ReadLine();
+            int fromIndex = accountNumbers.IndexOf(fromAccountNum);
+            if (fromIndex == -1)
+            {
+                Console.WriteLine("Your account number " + fromAccountNum + " does not exist. Please try again.");
+                return;
+            }
+            Console.Write("Enter recipient's account number: ");
+            string toAccountNum = Console.ReadLine();
+            int toIndex = accountNumbers.IndexOf(toAccountNum);
+
+            if (toIndex == -1)
+            {
+                Console.WriteLine("Recipient's account number " + toAccountNum + " does not exist. Please try again.");
+                return;
+            }
+            Console.Write("Enter transfer amount: ");
+            double amount = double.Parse(Console.ReadLine());
+            if (amount <= 0)
+            {
+                Console.WriteLine("Transfer amount must be greater than zero.");
+                return;
+            }
+
+            if(amount <= balances[fromIndex])
+            {
+                balances[fromIndex] -= amount;
+                balances[toIndex] += amount;
+                Console.WriteLine("Transfer successful. New balance for account " + fromAccountNum + " is: " + balances[fromIndex] + " OMR");
+                Console.WriteLine("New balance for account " + toAccountNum + " is: " + balances[toIndex] + " OMR");
+            }
+            else
+            {
+                Console.WriteLine("Insufficient funds. Current balance is: " + balances[fromIndex] + " OMR");
+            }
         }
         static void TransactionHistory()
         {
