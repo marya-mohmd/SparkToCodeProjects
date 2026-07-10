@@ -19,8 +19,8 @@
                 Console.WriteLine("3. Withdraw Money");
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
-                Console.WriteLine("6. <your 1st custom service - choose a name>");
-                Console.WriteLine("7. <your 2nd custom service - choose a name>");
+                Console.WriteLine("6. List All Accounts");
+                Console.WriteLine("7. Close An Account");
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose an option: ");
                 int choice;
@@ -51,10 +51,10 @@
                         TransferAmount();
                         break;
                     case 6:
-                        // TODO: call your first custom service function here
+                        ListAllAccounts();
                         break;
                     case 7:
-                        // TODO: call your second custom service function here
+                        CloseAccount();
                         break;
                     case 8:
                         exitApp = true;
@@ -73,26 +73,61 @@
         // for these services - it only shows the menu and calls them.
         static void AddAccount()
         {
-            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter customer name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter account number: ");
+            string accountNum = Console.ReadLine();
+
+            if (accountNumbers.Contains(accountNum))
+            {
+                Console.WriteLine("Account number " + accountNum + "already exists. Please try again.");
+                return;
+            }
+
+            Console.Write("Enter initial deposit amount:");
+            double initialDeposit;
+            try
+            {
+                initialDeposit = double.Parse(Console.ReadLine());
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid amount. Please enter a valid number for the initial deposit.");
+                return;
+            }
+
+            if (initialDeposit < 0)
+            {
+                Console.WriteLine("Initial deposit cannot be negative. Please try again.");
+                return;
+            }
+
+            customerNames.Add(name);
+            accountNumbers.Add(accountNum);
+            balances.Add(initialDeposit);
+            Console.WriteLine("Account created successfully for" + name);
+            Console.WriteLine("Account Number: " + accountNum);
+            Console.WriteLine("Initial Balance: " + initialDeposit + "OMR");
         }
-        static void DepositMoney()
-        {
-            // TODO: implement this service (see Section 3 requirements)
-        }
-        static void WithdrawMoney()
-        {
-            // TODO: implement this service (see Section 3 requirements)
-        }
-        static void ShowBalance()
-        {
-            // TODO: implement this service (see Section 3 requirements)
-        }
-        static void TransferAmount()
-        {
-            // TODO: implement this service (see Section 3 requirements)
-        }
-        // TODO: write two more void, no-parameter functions here for
-        // your own custom s
-    }
+            static void DepositMoney()
+            {
+                // TODO: implement this service (see Section 3 requirements)
+            }
+            static void WithdrawMoney()
+            {
+                // TODO: implement this service (see Section 3 requirements)
+            }
+            static void ShowBalance()
+            {
+                // TODO: implement this service (see Section 3 requirements)
+            }
+            static void TransferAmount()
+            {
+                // TODO: implement this service (see Section 3 requirements)
+            }
+            // TODO: write two more void, no-parameter functions here for
+            // your own custom s
+         }
 }
 
