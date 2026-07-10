@@ -295,7 +295,27 @@
         }
         static void DeleteAccount()
         {
+            Console.WriteLine("Enter account number you want to delete:");
+            string accNum = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accNum);
+            if(index == -1)
+            {
+                Console.WriteLine("Account not found.");
+                return;
+            }
+            if(balances[index] != 0)
+            {
+                Console.WriteLine("Please withdraw or transer the funds before deleting.");
+                return;
+            }
+            string deleteAccount = customerNames[index];
 
+            customerNames.RemoveAt(index);
+            accountNumbers.RemoveAt(index);
+            customerEmails.RemoveAt(index);
+            balances.RemoveAt(index);
+
+            Console.WriteLine("Account Deleted successfully."); 
         }
     }
 }
