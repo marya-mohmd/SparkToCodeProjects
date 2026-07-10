@@ -19,7 +19,7 @@
                 Console.WriteLine("3. Withdraw Money");
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
-                Console.WriteLine("6. List All Accounts");
+                Console.WriteLine("6. Update Customer Information");
                 Console.WriteLine("7. Close An Account");
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose an option: ");
@@ -51,7 +51,7 @@
                         TransferAmount();
                         break;
                     case 6:
-                        TransactionHistory();
+                        UpdateCutomerInfo();
                         break;
                     case 7:
                         ChangePassword();
@@ -106,6 +106,7 @@
             }
 
             customerNames.Add(name);
+            customerNames.Add(email);
             accountNumbers.Add(accountNum);
             balances.Add(initialDeposit);
             Console.WriteLine("Account created successfully for" + name);
@@ -238,9 +239,58 @@
                 Console.WriteLine("Insufficient funds. Current balance is: " + balances[fromIndex] + " OMR");
             }
         }
-        static void TransactionHistory()
+        static void UpdateCutomerInfo()
         {
+            Console.Write("Enter account number: ");
+            string accountNum = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accountNum);
+            if (index == -1)
+            { 
+                Console.WriteLine("Account number " + accountNum + " does not exist. Please try again.");
+                return;
+            }
 
+            Console.WriteLine("===== Current Customer Information =====");
+            Console.WriteLine("Customer Name: " + customerNames[index]);
+            Console.WriteLine("Customer Email: " + customerNames[index]);
+
+            Console.Write("===== What would you like to update? =====");
+            Console.WriteLine("1. Update Customer Name");
+            Console.WriteLine("2. Update Email");
+            Console.Write("Choose an option: ");
+
+            int option;
+            try
+            {
+                option = int.Parse(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid input.");
+                return; 
+            }
+            switch (option)
+            {
+                case 1:
+                    Console.Write("Enter new customer name: ");
+                    string newName = Console.ReadLine();
+                    customerNames[index] = newName;
+                    break;
+                case 2:
+                    Console.Write("Enter new email: ");
+                    string newEmail = Console.ReadLine();
+                    customerNames[index] = newEmail;
+                    break;
+                default:
+                    Console.WriteLine("Invalid option.");
+                    break;
+            }
+
+            Console.WriteLine("===== Updated Customer Information  =====");
+            Console.WriteLine("Customer Name: " + customerNames[index]);
+            Console.WriteLine("Account Number: " + accountNum);
+            Console.WriteLine("Customer Email: " + customerNames[index]);
+            
         }
         static void ChangePassword()
         {
