@@ -21,7 +21,7 @@
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
                 Console.WriteLine("6. Update Customer Information");
-                Console.WriteLine("7. Close An Account");
+                Console.WriteLine("7. Delete An Account");
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose an option: ");
                 int choice;
@@ -55,7 +55,7 @@
                         UpdateCutomerInfo();
                         break;
                     case 7:
-                        ChangePassword();
+                        DeleteAccount();
                         break;
                     case 8:
                         exitApp = true;
@@ -293,8 +293,9 @@
             Console.WriteLine("Customer Email: " + customerEmails[index]);
             
         }
-        static void ChangePassword()
+        static void DeleteAccount()
         {
+
         }
     }
 }
