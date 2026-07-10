@@ -54,7 +54,7 @@
                         TransactionHistory();
                         break;
                     case 7:
-                        CloseAccount();
+                        ChangePassword();
                         break;
                     case 8:
                         exitApp = true;
@@ -186,7 +186,18 @@
         }
         static void ShowBalance()
         {
-            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string accountNum = Console.ReadLine();
+            int index = accountNumbers.IndexOf(accountNum);
+            if(index == -1)
+            {
+                Console.WriteLine("Account number " + accountNum + " does not exist. Please try again.");
+                return;
+            }
+            Console.WriteLine("===== Your Account Details =====");
+            Console.WriteLine("Customer Name: " + customerNames[index]);
+            Console.WriteLine("Account Number: " + accountNum);
+            Console.WriteLine("Current Balance: " + balances[index] + " OMR");
         }
         static void TransferAmount()
         {
@@ -196,7 +207,7 @@
         {
 
         }
-        static void CloseAccount()
+        static void ChangePassword()
         {
         }
     }
