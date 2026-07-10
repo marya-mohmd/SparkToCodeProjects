@@ -8,6 +8,7 @@
         static List<string> customerNames = new List<string>();
         static List<string> accountNumbers = new List<string>();
         static List<double> balances = new List<double>();
+        static List<string> customerEmails = new List<string>();
         static void Main(string[] args)
         {
             bool exitApp = false;
@@ -106,7 +107,7 @@
             }
 
             customerNames.Add(name);
-            customerNames.Add(email);
+            customerEmails.Add(email);
             accountNumbers.Add(accountNum);
             balances.Add(initialDeposit);
             Console.WriteLine("Account created successfully for" + name);
@@ -289,7 +290,7 @@
             Console.WriteLine("===== Updated Customer Information  =====");
             Console.WriteLine("Customer Name: " + customerNames[index]);
             Console.WriteLine("Account Number: " + accountNum);
-            Console.WriteLine("Customer Email: " + customerNames[index]);
+            Console.WriteLine("Customer Email: " + customerEmails[index]);
             
         }
         static void ChangePassword()
