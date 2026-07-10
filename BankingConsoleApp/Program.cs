@@ -51,7 +51,7 @@
                         TransferAmount();
                         break;
                     case 6:
-                        ListAllAccounts();
+                        TransactionHistory();
                         break;
                     case 7:
                         CloseAccount();
@@ -77,6 +77,8 @@
             string name = Console.ReadLine();
             Console.Write("Enter account number: ");
             string accountNum = Console.ReadLine();
+            Console.WriteLine("Enter your email");
+            string email = Console.ReadLine();
 
             if (accountNumbers.Contains(accountNum))
             {
@@ -107,6 +109,7 @@
             accountNumbers.Add(accountNum);
             balances.Add(initialDeposit);
             Console.WriteLine("Account created successfully for" + name);
+            Console.WriteLine("Email: " + email);
             Console.WriteLine("Account Number: " + accountNum);
             Console.WriteLine("Initial Balance: " + initialDeposit + "OMR");
         }
@@ -154,7 +157,7 @@
         {
             // TODO: implement this service (see Section 3 requirements)
         }
-        static void ListAllAccounts()
+        static void TransactionHistory()
         {
 
         }
