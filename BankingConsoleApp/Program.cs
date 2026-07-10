@@ -126,28 +126,63 @@
             }
 
             Console.Write("Enter deposit amount: ");
-            double depositAmount;
+            double amount;
             try
             {
-                depositAmount = double.Parse(Console.ReadLine());
+                amount = double.Parse(Console.ReadLine());
             }
             catch (Exception)
             {
                 Console.WriteLine("Invalid amount.");
                 return;
             }
-            if(depositAmount <= 0)
+            if(amount <= 0)
             {
                 Console.WriteLine("Deposit amount must be greater than zero.");
                 return;
             }
 
-            balances[index] += depositAmount;
+            balances[index] += amount;
             Console.WriteLine("Deposit successful. New balance for account " + accountNum + " is: " + balances[index] + " OMR");
         }
         static void WithdrawMoney()
         {
-            // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter account number: ");
+            string accountNum = Console.ReadLine();
+
+            int index = accountNumbers.IndexOf(accountNum);
+            if (index == -1)
+            {
+                Console.WriteLine("Account number " + accountNum + " does not exist. Please try again.");
+                return;
+            }
+
+            Console.Write("Enter withdrawal amount: ");
+            double amount;
+            try
+            {
+                amount = double.Parse(Console.ReadLine());
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalid amount.");
+                return;
+            }
+
+            if (amount <= 0)
+            {
+                Console.WriteLine("Withdrawal amount must be greater than zero.");
+                return;
+            }
+            if (amount > balances[index])
+            {
+                Console.WriteLine("Insufficient funds. Current balance is: " + balances[index] + " OMR");
+                return;
+            }
+
+            balances[index] -= amount;
+            Console.WriteLine("Withdrawal successful. New balance for account " + accountNum + " is: " + balances[index] + " OMR");
+
         }
         static void ShowBalance()
         {
