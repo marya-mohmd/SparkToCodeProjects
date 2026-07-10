@@ -4,7 +4,7 @@
     {
         /* Shared data storage - declared at class level (static) so that
         EVERY function below can read and modify the same three lists
-        without needing them passed in as parameters.*/ 
+        without needing them passed in as parameters.*/
         static List<string> customerNames = new List<string>();
         static List<string> accountNumbers = new List<string>();
         static List<double> balances = new List<double>();
@@ -110,24 +110,57 @@
             Console.WriteLine("Account Number: " + accountNum);
             Console.WriteLine("Initial Balance: " + initialDeposit + "OMR");
         }
-            static void DepositMoney()
+        static void DepositMoney()
+        {
+            Console.Write("Enter account number: ");
+            string accountNum = Console.ReadLine();
+
+            int index = accountNumbers.IndexOf(accountNum);
+            if (index == -1)
             {
-                // TODO: implement this service (see Section 3 requirements)
+                Console.WriteLine("Account number " + accountNum + " does not exist. Please try again.");
+                return;
             }
-            static void WithdrawMoney()
+
+            Console.Write("Enter deposit amount: ");
+            double depositAmount;
+            try
             {
-                // TODO: implement this service (see Section 3 requirements)
+                depositAmount = double.Parse(Console.ReadLine());
             }
-            static void ShowBalance()
+            catch (Exception)
             {
-                // TODO: implement this service (see Section 3 requirements)
+                Console.WriteLine("Invalid amount.");
+                return;
             }
-            static void TransferAmount()
+            if(depositAmount <= 0)
             {
-                // TODO: implement this service (see Section 3 requirements)
+                Console.WriteLine("Deposit amount must be greater than zero.");
+                return;
             }
-            // TODO: write two more void, no-parameter functions here for
-            // your own custom s
-         }
+
+            balances[index] += depositAmount;
+            Console.WriteLine("Deposit successful. New balance for account " + accountNum + " is: " + balances[index] + " OMR");
+        }
+        static void WithdrawMoney()
+        {
+            // TODO: implement this service (see Section 3 requirements)
+        }
+        static void ShowBalance()
+        {
+            // TODO: implement this service (see Section 3 requirements)
+        }
+        static void TransferAmount()
+        {
+            // TODO: implement this service (see Section 3 requirements)
+        }
+        static void ListAllAccounts()
+        {
+
+        }
+        static void CloseAccount()
+        {
+        }
+    }
 }
 
