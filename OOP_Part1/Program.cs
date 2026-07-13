@@ -230,6 +230,23 @@ namespace OOP_Part1
             student.Address = newAddress;
             Console.WriteLine("Address updated to: " + newAddress); 
         }
+
+        //Case 3 - Make a Deposit
+        static void MakeDeposit()
+        {
+            BankAccount account = ChooseAccount();
+            Console.WriteLine("Enter deposite amount:");
+            try
+            {
+                double amount = double.Parse(Console.ReadLine());
+                account.Deposit(amount);
+                Console.WriteLine(account.HolderName + "'s current balance: " + account.Balance);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalied amount entered.");
+            }
+        }
     }
 }
 
