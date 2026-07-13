@@ -276,7 +276,11 @@ namespace OOP_Part1
         //Case 6 - Register a Student
         static void RegisterStudent()
         {
-
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter email:");
+            string emailInput = Console.ReadLine();
+            student.Reister(emailInput);
+            Console.WriteLine(student.Name + " has been registered successfully.");
         }
 
         //Case 7 - Compare Two Account Balances
