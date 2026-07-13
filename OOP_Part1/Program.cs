@@ -38,6 +38,24 @@ namespace OOP_Part1
             Console.WriteLine("Email notification sent to account holder.");
         }
     }
+    public class Student
+    {
+        public int Grade;
+        public string Name;
+        public string Address;
+        private string email;
+
+        int age;
+        public void Reister(string Email)
+        {
+            email = Email;
+            SendEmail();
+        }
+        private void SendEmail()
+        {
+            Console.WriteLine("Registation email sent to student");
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
