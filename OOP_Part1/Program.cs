@@ -286,7 +286,18 @@ namespace OOP_Part1
         //Case 7 - Compare Two Account Balances
         static void CompareBalances()
         {
-
+            if (account1.Balance > account2.Balance)
+            {
+                Console.WriteLine(account1.HolderName + "'s account has more money.");
+            }
+            else if (account2.Balance > account1.Balance)
+            {
+                Console.WriteLine(account2.HolderName + "'s account has more money.");
+            }
+            else
+            {
+                Console.WriteLine("Both accounts have equal balances.");
+            }
         }
 
         //Case 8 - Restock Product & Stock Level Check
