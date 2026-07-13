@@ -303,7 +303,28 @@ namespace OOP_Part1
         //Case 8 - Restock Product & Stock Level Check
         static void RestockAndCheckLevel()
         {
+            Product product = ChooseProduct();
+            Console.WriteLine("Enter quantity to restock:");
+            try
+            {
+                int quantity = int.Parse(Console.ReadLine());
+                product.Restock(quantity);
 
+                string level;
+                if (product.StockQuantity < 10)
+                    level = "Low";
+                else if (product.StockQuantity <= 49)
+                    level = "Moderate";
+                else
+                    level = "Well Stocked";
+
+                Console.WriteLine("Updated stock quantity: " + product.StockQuantity);
+                Console.WriteLine("Stock level status: " + level);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalied quantity entered.");
+            }
         }
 
         //Case 9 - Transfer Between Accounts
