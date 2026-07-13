@@ -102,7 +102,7 @@ namespace OOP_Part1
     public class Program
     {
         static BankAccount account1 = new BankAccount() { AccountNumber = 1163, HolderName = "karim", Balance = 120 };
-        static BankAccount accoun2 = new BankAccount() { AccountNumber = 15203, HolderName = "Ali", Balance = 63 };
+        static BankAccount account2= new BankAccount() { AccountNumber = 15203, HolderName = "Ali", Balance = 63 };
 
         static Student student1 = new Student { Name = "Ali", Address = "Muscat", Grade = 65 };
         static Student student2 = new Student { Name = "Ahmed", Address = "Muscat", Grade = 70 };
@@ -182,8 +182,36 @@ namespace OOP_Part1
             }
 
         }
-
-
+        static  BankAccount ChooseAccount()
+        {
+            Console.WriteLine("Choose account (1 or 2):");
+            string input = Console.ReadLine();
+            if(input == "2")
+            {
+                return account2;
+            }
+            return account1;
+        }
+        static Student ChooseStudent()
+        {
+            Console.WriteLine("Choose student (1 or 2)");
+            string input = Console.ReadLine();
+            if (input == "2")
+            {
+                return student2;
+            }
+            return student1;
+        }
+        static Product ChooseProduct()
+        {
+            Console.WriteLine("Choose Product (1 or 2)");
+            string input = Console.ReadLine();
+            if (input == "2")
+            {
+                return product2;
+            }
+            return product1;
+        }
     }
 }
 
