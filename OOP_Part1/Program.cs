@@ -219,6 +219,17 @@ namespace OOP_Part1
             BankAccount choosen = ChooseAccount();
             choosen.CheckBalance();
         }
+
+        //Case 2 - Update Student Address
+        static void UpdateStudentAddress()
+        {
+            Student student = ChooseStudent();
+
+            Console.WriteLine("Enter your new address");
+            string newAddress = Console.ReadLine();
+            student.Address = newAddress;
+            Console.WriteLine("Address updated to: " + newAddress); 
+        }
     }
 }
 
