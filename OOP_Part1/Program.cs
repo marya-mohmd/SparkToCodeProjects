@@ -55,6 +55,49 @@ namespace OOP_Part1
         {
             Console.WriteLine("Registation email sent to student");
         }
+        public class Product
+        {
+            public string ProductName;
+            public double Price;
+            public int StockQuantity;
+
+            public void Sell(int quantity)
+            {
+                if (StockQuantity >= quantity)
+                {
+                    StockQuantity -= quantity;
+                }
+                else
+                {
+                    Console.WriteLine("Not enough stock available to complete this sale");
+                }
+                LogTransaction();
+            }
+
+            public void Restock(int quantity)
+            {
+                StockQuantity += quantity;
+                LogTransaction();
+            }
+
+            public double GetInventoryValue()
+            {
+                PrintDetails();
+                return Price * StockQuantity;
+            }
+            private void PrintDetails()
+            {
+                Console.WriteLine("Product Name:"+ ProductName);
+                Console.WriteLine("Price:" + Price);
+                Console.WriteLine("Stock Quantity:" + StockQuantity);
+            }
+
+            private void LogTransaction()
+            {
+                Console.WriteLine("Transaction logged successfully");
+            }
+
+        }
     }
     internal class Program
     {
