@@ -212,6 +212,13 @@ namespace OOP_Part1
             }
             return product1;
         }
+
+        //Case 1 - View Account Details
+        static void ViewAccountDetails()
+        {
+            BankAccount choosen = ChooseAccount();
+            choosen.CheckBalance();
+        }
     }
 }
 
