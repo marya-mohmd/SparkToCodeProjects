@@ -268,7 +268,9 @@ namespace OOP_Part1
         //Case 5 - View Product Details
         static void ViewProductDetail()
         {
-            
+            Product product = ChooseProduct();
+            double value = product.GetInventoryValue();
+            Console.WriteLine("Total inventory value: " + value);
         }
 
         //Case 6 - Register a Student
