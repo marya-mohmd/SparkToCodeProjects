@@ -247,6 +247,113 @@ namespace OOP_Part1
                 Console.WriteLine("Invalied amount entered.");
             }
         }
+
+        //Case 4 - Make a Withdrawal
+        static void MakeWithdrawal()
+        {
+            BankAccount account = ChooseAccount();
+            Console.WriteLine("Enter withdrawal amount:");
+            try
+            {
+                double amount = double.Parse(Console.ReadLine());
+                account.withdraw(amount);
+                Console.WriteLine(account.HolderName + "'s current balance: " + account.Balance);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalied amount entered.");
+            }
+        }
+
+        //Case 5 - View Product Details
+        static void ViewProductDetail()
+        {
+            
+        }
+
+        //Case 6 - Register a Student
+        static void RegisterStudent()
+        {
+
+        }
+
+        //Case 7 - Compare Two Account Balances
+        static void CompareBalances()
+        {
+
+        }
+
+        //Case 8 - Restock Product & Stock Level Check
+        static void RestockAndCheckLevel()
+        {
+
+        }
+
+        //Case 9 - Transfer Between Accounts
+        static void TransferBetweenAccounts()
+        {
+
+        }
+
+        //Case 10 - Update Student Grade (Validated)
+        static void UpdateGradeValidated()
+        {
+
+        }
+
+        //Case 11 - Student Report Card
+        static void StudentReportCard()
+        {
+
+        }
+
+        //Case 12 - Account Health Status
+        static void AccountHealthStatus()
+        {
+
+        }
+
+        //Case 13 - Bulk Sale With Revenue Calculation
+        static void BulkSaleWithRevenue()
+        {
+
+        }
+
+        //Case 14 - Scholarship Eligibility Check
+        static void ScholarshipEligibility()
+        {
+
+        }
+
+        //Case 15 - Full Balance Top-Up Flow
+        static void FullBalanceTopUp()
+        {
+
+        }
+
+        //Case 16 - Quick Account Opening [Parameterized Constructor]
+        static void QuickAccountOpening()
+        {
+
+        }
+
+        //Case 17 - Total Students Counter [Static Fields & Methods]
+        static void TotalStudentsCounter()
+        {
+
+        }
+
+        //Case 18 - Overdrawn Account Check [Read-Only Property]
+        static void OverdrawnCheck()
+        {
+
+        }
+
+        //Case 19 - Set Student Security PIN [Write-Only Property]
+        static void SetStudentPin()
+        {
+
+        }
     }
 }
 
