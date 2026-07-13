@@ -1,5 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using static OOP_Part1.Student;
+﻿using static OOP_Part1.Student;
 
 namespace OOP_Part1
 {
@@ -100,110 +99,94 @@ namespace OOP_Part1
 
         }
     }
-    internal class Program
+    public class Program
     {
+        static BankAccount account1 = new BankAccount() { AccountNumber = 1163, HolderName = "karim", Balance = 120 };
+        static BankAccount accoun2 = new BankAccount() { AccountNumber = 15203, HolderName = "Ali", Balance = 63 };
+
+        static Student student1 = new Student { Name = "Ali", Address = "Muscat", Grade = 65 };
+        static Student student2 = new Student { Name = "Ahmed", Address = "Muscat", Grade = 70 };
+
+        static Product product1 = new Product { ProductName = "Wireless Mouse", Price = 5.500, StockQuantity = 50 };
+        static Product product2 = new Product { ProductName = "Mechanical Keyboard", Price = 15.750, StockQuantity = 20 };
         static void Main(string[] args)
         {
-            BankAccount account1 = new BankAccount();
-            account1.AccountNumber = 1163;
-            account1.HolderName = "karim";
-            account1.Balance = 120;
-
-            BankAccount account2 = new BankAccount();
-            account2.AccountNumber = 15203;
-            account2.HolderName = "Ali";
-            account2.Balance = 63;
-
-            Student student1 = new Student();
-            student1.Name = "Ali";
-            student1.Address = "Muscat";
-            student1.Grade = 65;
-
-            Student student2 = new Student();
-            student2.Name = "Ahmed";
-            student2.Address = "Muscat";
-            student2.Grade = 70;
-
-            Product product1 = new Product();
-            product1.ProductName = "Wireless Mouse";
-            product1.Price = 5.500;
-            product1.StockQuantity = 50;
-
-            Product product2 = new Product();
-            product2.ProductName = "Mechanical Keyboard";
-            product2.Price = 15.750;
-            product2.StockQuantity = 20;
-
-            bool running = true;
-            while (running)
+            bool exitApp = false;
+            while (exitApp)
             {
-                PrintMenu();
-                int choice = GetIntInRange("Enter your choice: ", 1, 20);
-                Console.WriteLine();
+                Console.WriteLine(" 1.  View Account Details");
+                Console.WriteLine(" 2.  Update Student Address");
+                Console.WriteLine(" 3.  Make a Deposit");
+                Console.WriteLine(" 4.  Make a Withdrawal");
+                Console.WriteLine(" 5.  View Product Details");
+                Console.WriteLine(" 6.  Register a Student");
+                Console.WriteLine(" 7.  Compare Two Account Balances");
+                Console.WriteLine(" 8.  Restock Product & Stock Level Check");
+                Console.WriteLine(" 9.  Transfer Between Accounts");
+                Console.WriteLine(" 10. Update Student Grade (Validated)");
+                Console.WriteLine(" 11. Student Report Card");
+                Console.WriteLine(" 12. Account Health Status");
+                Console.WriteLine(" 13. Bulk Sale With Revenue Calculation");
+                Console.WriteLine(" 14. Scholarship Eligibility Check");
+                Console.WriteLine(" 15. Full Balance Top-Up Flow");
+                Console.WriteLine(" 16. Quick Account Opening [Parameterized Constructor]");
+                Console.WriteLine(" 17. Total Students Counter [Static Field/Method]");
+                Console.WriteLine(" 18. Overdrawn Account Check [Read-Only Property]");
+                Console.WriteLine(" 19. Set Student Security PIN [Write-Only Property]");
+                Console.WriteLine(" 20. Exit");
+                Console.WriteLine("Choose an option");
 
+                int choice;
+                try
+                {
+                    choice = int.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input. Enter Number between 1 to 20.");
+                    continue;
+                }
                 switch (choice)
                 {
-                    case 1: Case1_ViewAccountDetails(account1, account2); break;
-                    case 2: Case2_UpdateStudentAddress(student1, student2); break;
-                    case 3: Case3_MakeDeposit(account1, account2); break;
-                    case 4: Case4_MakeWithdrawal(account1, account2); break;
-                    case 5: Case5_ViewProductDetails(product1, product2); break;
-                    case 6: Case6_RegisterStudent(student1, student2); break;
-                    case 7: Case7_CompareBalances(account1, account2); break;
-                    case 8: Case8_RestockAndCheckLevel(product1, product2); break;
-                    case 9: Case9_TransferBetweenAccounts(account1, account2); break;
-                    case 10: Case10_UpdateGradeValidated(student1, student2); break;
-                    case 11: Case11_StudentReportCard(student1, student2); break;
-                    case 12: Case12_AccountHealthStatus(account1, account2); break;
-                    case 13: Case13_BulkSaleWithRevenue(product1, product2); break;
-                    case 14: Case14_ScholarshipEligibility(student1, student2, account1, account2); break;
-                    case 15: Case15_FullBalanceTopUp(account1, account2); break;
-                    case 16: Case16_QuickAccountOpening(); break;
-                    case 17: Case17_TotalStudentsCounter(); break;
-                    case 18: Case18_OverdrawnCheck(account1, account2); break;
-                    case 19: Case19_SetStudentPin(student1, student2); break;
+                    case 1: ViewAccountDetails(); break;
+                    case 2: UpdateStudentAddress(); break;
+                    case 3: MakeDeposit(); break;
+                    case 4: MakeWithdrawal(); break;
+                    case 5: ViewProductDetail(); break;
+                    case 6: RegisterStudent(); break;
+                    case 7: CompareBalances(); break;
+                    case 8: RestockAndCheckLevel(); break;
+                    case 9: TransferBetweenAccounts(); break;
+                    case 10: UpdateGradeValidated(); break;
+                    case 11: StudentReportCard(); break;
+                    case 12: AccountHealthStatus(); break;
+                    case 13: BulkSaleWithRevenue(); break;
+                    case 14: ScholarshipEligibility(); break;
+                    case 15: FullBalanceTopUp(); break;
+                    case 16: QuickAccountOpening(); break;
+                    case 17: TotalStudentsCounter(); break;
+                    case 18: OverdrawnCheck(); break;
+                    case 19: SetStudentPin(); break;
                     case 20:
-                        running = false;
+                        exitApp = true;
                         Console.WriteLine("Goodbye!");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Choose between 1 and 20.");
                         break;
                 }
 
-                if (running)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Press Enter to continue...");
-                    Console.ReadLine();
-                }
+                Console.WriteLine("Press any key");
+                Console.ReadKey();
+                Console.Clear();
             }
-        }
-        static void PrintMenu()
-        {
-            Console.Clear();
-            Console.WriteLine(" 1.  View Account Details");
-            Console.WriteLine(" 2.  Update Student Address");
-            Console.WriteLine(" 3.  Make a Deposit");
-            Console.WriteLine(" 4.  Make a Withdrawal");
-            Console.WriteLine(" 5.  View Product Details");
-            Console.WriteLine(" 6.  Register a Student");
-            Console.WriteLine(" 7.  Compare Two Account Balances");
-            Console.WriteLine(" 8.  Restock Product & Stock Level Check");
-            Console.WriteLine(" 9.  Transfer Between Accounts");
-            Console.WriteLine(" 10. Update Student Grade (Validated)");
-            Console.WriteLine(" 11. Student Report Card");
-            Console.WriteLine(" 12. Account Health Status");
-            Console.WriteLine(" 13. Bulk Sale With Revenue Calculation");
-            Console.WriteLine(" 14. Scholarship Eligibility Check");
-            Console.WriteLine(" 15. Full Balance Top-Up Flow");
-            Console.WriteLine(" 16. Quick Account Opening [Parameterized Constructor]");
-            Console.WriteLine(" 17. Total Students Counter [Static Field/Method]");
-            Console.WriteLine(" 18. Overdrawn Account Check [Read-Only Property]");
-            Console.WriteLine(" 19. Set Student Security PIN [Write-Only Property]");
-            Console.WriteLine(" 20. Exit");
 
         }
+
+
     }
 }
 
-    
+
 
 
