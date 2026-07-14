@@ -10,6 +10,12 @@ namespace OOP_Part1
 
         public BankAccount() { }
 
+        // Case 18
+        public bool IsOverdrawn
+        {
+            get { return Balance < 0; }
+        }
+
         public void Deposit(double amount)
         {
             Balance += amount;
@@ -542,7 +548,16 @@ namespace OOP_Part1
         //Case 18 - Overdrawn Account Check [Read-Only Property]
         static void OverdrawnCheck()
         {
+            BankAccount account = ChooseAccount();
 
+            if (account.IsOverdrawn)
+            {
+                Console.WriteLine("Account #" + account.AccountNumber + " is currently OVERDRAWN.");
+            }
+            else
+            {
+                Console.WriteLine("Account #" + account.AccountNumber + " is not overdrawn.");
+            }
         }
 
         //Case 19 - Set Student Security PIN [Write-Only Property]
