@@ -368,7 +368,26 @@ namespace OOP_Part1
         //Case 10 - Update Student Grade (Validated)
         static void UpdateGradeValidated()
         {
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter new grade:");
 
+            try
+            {
+                int grade = int.Parse(Console.ReadLine());
+
+                if (grade < 0 || grade > 100)
+                {
+                    Console.WriteLine("Update rejected: grade must be between 0 and 100.");
+                    return;
+                }
+
+                student.Grade = grade;
+                Console.WriteLine("Grade updated successfully. " + student.Name + "'s new grade: " + student.Grade);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Update rejected: the value entered is not a valid number.");
+            }
         }
 
         //Case 11 - Student Report Card
