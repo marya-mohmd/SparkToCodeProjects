@@ -393,7 +393,13 @@ namespace OOP_Part1
         //Case 11 - Student Report Card
         static void StudentReportCard()
         {
+            Student student = ChooseStudent();
+            string status = student.Grade >= 60 ? "Pass" : "Fail";
 
+            Console.WriteLine("Name    : " + student.Name);
+            Console.WriteLine("Address : " + student.Address);
+            Console.WriteLine("Grade   : " + student.Grade);
+            Console.WriteLine("Status  : " + status);
         }
 
         //Case 12 - Account Health Status
