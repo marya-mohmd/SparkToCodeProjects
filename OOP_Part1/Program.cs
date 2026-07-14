@@ -471,7 +471,20 @@ namespace OOP_Part1
         //Case 15 - Full Balance Top-Up Flow
         static void FullBalanceTopUp()
         {
+            BankAccount account = ChooseAccount();
+            double before = account.Balance;
 
+            if (before < 50)
+            {
+                double topUp = 100 - before;
+                account.Deposit(topUp);
+                Console.WriteLine("Balance before top-up: " + before);
+                Console.WriteLine("Balance after top-up : " + account.Balance);
+            }
+            else
+            {
+                Console.WriteLine("No top-up needed. Current balance (" + before + ") is already 50 or above.");
+            }
         }
 
         //Case 16 - Quick Account Opening [Parameterized Constructor]
