@@ -490,7 +490,26 @@ namespace OOP_Part1
         //Case 16 - Quick Account Opening [Parameterized Constructor]
         static void QuickAccountOpening()
         {
+            try
+            {
+                Console.WriteLine("Enter new account number:");
+                int accNum = int.Parse(Console.ReadLine());
 
+                Console.WriteLine("Enter holder name:");
+                string name = Console.ReadLine();
+
+                Console.WriteLine("Enter starting balance:");
+                double startBalance = double.Parse(Console.ReadLine());
+
+                 BankAccount newAccount = new BankAccount() { AccountNumber = accNum, HolderName = name, Balance = startBalance };
+
+                Console.WriteLine("New account created:");
+                newAccount.CheckBalance();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalied input entered. Account not created.");
+            }
         }
 
         //Case 17 - Total Students Counter [Static Fields & Methods]
