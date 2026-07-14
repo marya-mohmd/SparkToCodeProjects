@@ -46,6 +46,26 @@ namespace OOP_Part1
         private string email;
 
         int age;
+
+        private static int totalStudents = 0;
+        private int pin;
+
+        public Student()
+        {
+            totalStudents++;
+        }
+
+        // Case 17
+        public static int GetTotalStudents()
+        {
+            return totalStudents;
+        }
+
+        // Case 19
+        public int Pin
+        {
+            set { pin = value; }
+        }
         public void Reister(string Email)
         {
             email = Email;
@@ -515,7 +535,8 @@ namespace OOP_Part1
         //Case 17 - Total Students Counter [Static Fields & Methods]
         static void TotalStudentsCounter()
         {
-
+            int total = Student.GetTotalStudents(); 
+            Console.WriteLine("Total Student objects created: " + total);
         }
 
         //Case 18 - Overdrawn Account Check [Read-Only Property]
