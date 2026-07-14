@@ -421,7 +421,28 @@ namespace OOP_Part1
         //Case 13 - Bulk Sale With Revenue Calculation
         static void BulkSaleWithRevenue()
         {
+            Product product = ChooseProduct();
+            Console.WriteLine("Enter quantity to sell:");
 
+            try
+            {
+                int quantity = int.Parse(Console.ReadLine());
+
+                if (product.StockQuantity < quantity)
+                {
+                    int shortfall = quantity - product.StockQuantity;
+                    Console.WriteLine("Not enough stock. You need " + shortfall + " more unit(s) to fulfill this order. No sale was made.");
+                    return;
+                }
+
+                product.Sell(quantity);
+                double revenue = quantity * product.Price;
+                Console.WriteLine("Sale successful. Total revenue: " + revenue);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalied quantity entered.");
+            }
         }
 
         //Case 14 - Scholarship Eligibility Check
