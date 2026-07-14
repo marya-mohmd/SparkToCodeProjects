@@ -448,7 +448,24 @@ namespace OOP_Part1
         //Case 14 - Scholarship Eligibility Check
         static void ScholarshipEligibility()
         {
+            Student student = ChooseStudent();
+            BankAccount account = ChooseAccount();
 
+            bool gradeOk = student.Grade >= 80;
+            bool balanceOk = account.Balance >= 100;
+
+            if (gradeOk && balanceOk)
+            {
+                Console.WriteLine("Result: Eligible");
+            }
+            else
+            {
+                Console.WriteLine("Result: Not Eligible");
+                if (!gradeOk)
+                    Console.WriteLine("Reason: " + student.Name + "'s grade (" + student.Grade + ") is below the required 80.");
+                if (!balanceOk)
+                    Console.WriteLine("Reason: Account #" + account.AccountNumber + "'s balance (" + account.Balance + ") is below the required 100.");
+            }
         }
 
         //Case 15 - Full Balance Top-Up Flow
