@@ -330,7 +330,39 @@ namespace OOP_Part1
         //Case 9 - Transfer Between Accounts
         static void TransferBetweenAccounts()
         {
+            Console.WriteLine("Select the account:");
+            BankAccount from = ChooseAccount(); 
+            Console.WriteLine("Enter DESTINATION account:");
+            BankAccount destination = ChooseAccount();
 
+            if (from == destination)
+            {
+                Console.WriteLine("Source and destination cannot be the same account.");
+                return;
+            }
+
+            Console.WriteLine("Enter amount to transfer:");
+            try
+            {
+                double amount = double.Parse(Console.ReadLine());
+
+                if (from.Balance >= amount)
+                {
+                    from.withdraw(amount);
+                    destination.Deposit(amount);
+                    Console.WriteLine("Transfer successful.");
+                    Console.WriteLine(from.HolderName + "'s new balance: " + from.Balance);
+                    Console.WriteLine(destination.HolderName + "'s new balance: " + destination.Balance);
+                }
+                else
+                {
+                    Console.WriteLine("Transfer failed: insufficient funds in the source account.");
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalied amount entered.");
+            }
         }
 
         //Case 10 - Update Student Grade (Validated)
