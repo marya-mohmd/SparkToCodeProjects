@@ -563,7 +563,19 @@ namespace OOP_Part1
         //Case 19 - Set Student Security PIN [Write-Only Property]
         static void SetStudentPin()
         {
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter a 4-digit PIN:");
 
+            try
+            {
+                int pin = int.Parse(Console.ReadLine());
+                student.Pin = pin; 
+                Console.WriteLine("PIN set successfully for " + student.Name );
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Invalied PIN entered.");
+            }
         }
     }
 }
