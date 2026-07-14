@@ -405,7 +405,17 @@ namespace OOP_Part1
         //Case 12 - Account Health Status
         static void AccountHealthStatus()
         {
-
+            BankAccount account = ChooseAccount();
+ 
+            string status;
+            if (account.Balance < 50)
+                status = "Low Balance";
+            else if (account.Balance <= 1000)
+                status = "Healthy";
+            else
+                status = "Premium";
+ 
+            Console.WriteLine("Account #" + account.AccountNumber + " status: " + status);
         }
 
         //Case 13 - Bulk Sale With Revenue Calculation
