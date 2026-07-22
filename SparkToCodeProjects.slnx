@@ -1,8 +1,14 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Database Tasks/Airline Information System ERD.jpeg" />
+    <File Path="Database Tasks/College Management System ERD.jpeg" />
+    <File Path="Database Tasks/Company Database ERD.jpeg" />
+  </Folder>
   <Project Path="BankingConsoleApp/BankingConsoleApp.csproj" Id="57490ca0-c2ca-4948-b80d-7b99e9563ff0" />
   <Project Path="OOP_Part1/OOP_Part1.csproj" Id="c43e9c42-4cd3-4615-a75c-4720c450a8c0" />
   <Project Path="Session3PracticeTask/Session3PracticeTask.csproj" Id="1d10260c-857d-41dc-a357-287208e35ac6" />
   <Project Path="Session4PracticeTask/Session4PracticeTask.csproj" Id="b2dc96d7-642d-4d95-9e7b-72c48f872261" />
   <Project Path="Session[5]PracticeTasks/Session[5]PracticeTasks.csproj" Id="ed7f7bfd-fead-40cc-b978-859a417a9df6" />
   <Project Path="SparkToCode.program1/SparkToCode.program1.csproj" />
+  <Project Path="Task1DB_Design/Task1DB_Design.csproj" Id="a28d146c-5bbf-47c6-97c8-5beac77586aa" />
 </Solution>
